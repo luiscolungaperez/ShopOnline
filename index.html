@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <title>Tienda en linea</title>
+  </head>
+  <body>
+    <header class="header">
+      <img
+        src="https://i.pinimg.com/originals/19/b8/e4/19b8e4082fa83f1616c2a11df8ff421a.png"
+        alt="/"
+        class="header__brand"
+      />
+      <nav class="header__nav">
+        <ul>
+          <li>
+            <a href="/">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="./pages/cart.html">
+              Carrito
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button class="header__buttonNav">menu</button>
+    </header>
+    <section class="overlay" id="overlay">
+      <section class="modal" id="modal">
+        <section class="transparent">
+          <img src="./assets/img/1.png" alt="/" class="transparent__img" />
+        </section>
+        <section class="content">
+          <button class="content__close" id="closeButton">X</button>
+          <div class="content__info">
+            <h2>Tenis no se cual</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni,
+              pariatur aperiam. ipsum consectetur asperiores dolore at eligendi
+              amet
+            </p>
+          </div>
+          <div class="content__price">
+            <h3>$3000</h3>
+            <button class="content__price--btn">Agregar</button>
+          </div>
+        </section>
+      </section>
+    </section>
+    <main class="container">
+      <h1>Adidas</h1>
+      <section class="content" id="content"></section>
+    </main>
+    <!-- <footer class="footer">
+      footer
+    </footer> -->
+    <script src="./assets/js/fetching.js"></script>
+  </body>
+</html>

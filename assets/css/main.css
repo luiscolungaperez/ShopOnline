@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap&family=Russo+One&display=swap");
+.header {
+  position: fixed;
+  top: 0;
+  min-width: calc(420px - 40px);
+  width: calc(100% - 40px);
+  height: 80px;
+  padding: 0 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+.header__brand {
+  width: 100px;
+}
+.header__nav ul {
+  display: flex;
+}
+.header__nav ul li {
+  list-style: none;
+  padding: 0 10px;
+}
+.header__nav ul li a {
+  color: #0c3559;
+  text-decoration: none;
+  font-size: 20px;
+}
+.header__nav ul li:hover {
+  color: #687b8c;
+  cursor: pointer;
+}
+.header__buttonNav {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+  .header__buttonNav {
+    display: block;
+  }
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.overlay .modal {
+  width: 600px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-areas: "transparent content";
+  animation: modalOut 0.8s forwards;
+}
+.overlay .modal.active {
+  animation: modalIn 0.8s forwards;
+}
+.overlay .modal .transparent {
+  background-color: transparent;
+}
+.overlay .modal .transparent:before {
+  font-family: "Russo One", sans-serif;
+  position: relative;
+  top: 20px;
+  font-size: 5em;
+  font-weight: 400;
+  color: #cccccc;
+  content: "Adidas";
+  opacity: 0.5;
+  letter-spacing: 10px;
+}
+.overlay .modal .transparent__img {
+  position: relative;
+  width: 400px;
+  left: -90px;
+  top: 20px;
+  transform: rotateZ(-30deg);
+}
+.overlay .modal .content {
+  background-color: #0c3559;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+}
+.overlay .modal .content__close {
+  position: relative;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+  border-radius: 50%;
+  font-weight: 900;
+}
+.overlay .modal .content__close:hover {
+  background-color: #2a558c;
+}
+.overlay .modal .content__info {
+  padding: 10px 20px 10px 50px;
+  display: inherit;
+  flex-direction: inherit;
+  align-items: flex-end;
+  text-align: right;
+}
+.overlay .modal .content__info h2 {
+  font-family: "Russo One", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 30px;
+  margin: 20px 0 10px 0;
+}
+.overlay .modal .content__info p {
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+.overlay .modal .content__price {
+  padding: 0 20px;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.overlay .modal .content__price h3 {
+  font-family: "Russo One", sans-serif;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+.overlay .modal .content__price--btn {
+  font-family: "Russo One", sans-serif;
+  padding: 5px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #2a558c;
+  color: white;
+  outline: none;
+  border: 1px solid white;
+  transition: 0.2s ease-in-out;
+}
+.overlay .modal .content__price--btn:hover {
+  background-color: #0c3559;
+  cursor: pointer;
+}
+.overlay .modal .content__price--btn:active {
+  background-color: #0c3559;
+  transform: scale(0.9);
+}
+
+@keyframes modalIn {
+  0% {
+    transform: translateY(-3000px);
+  }
+  60% {
+    transform: translateY(25px);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  90% {
+    transform: translateY(5px);
+  }
+}
+@keyframes modalOut {
+  0% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(25px);
+  }
+  100% {
+    transform: translateY(-3000px);
+  }
+}
+.cart {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-areas: "pay items";
+  height: calc(100vh - 260px);
+  grid-gap: 20px;
+}
+.cart__pay {
+  position: fixed;
+  bottom: 0;
+  grid-area: pay;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: #2a558c;
+}
+.cart__pay--subtotal {
+  font-size: 22px;
+  padding-left: 20px;
+}
+.cart__pay--iva {
+  font-size: 22px;
+  padding-left: 20px;
+  font-family: "Russo One", sans-serif;
+}
+.cart__pay--total {
+  font-size: 30px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-family: "Russo One", sans-serif;
+}
+.cart__pay--btn {
+  margin: 0 0 20px 20px;
+  font-family: "Russo One", sans-serif;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #2a558c;
+  color: white;
+  outline: none;
+  border: 1px solid white;
+  transition: 0.2s ease-in-out;
+}
+.cart__pay--btn:hover {
+  background-color: #0c3559;
+  cursor: pointer;
+}
+.cart__pay--btn:active {
+  background-color: #0c3559;
+  transform: scale(0.9);
+}
+.cart__items {
+  height: 100%;
+  width: calc(100% - 50px);
+  grid-area: items;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.cart__items .item {
+  box-shadow: 0 0 10px #cccccc;
+  width: 100%;
+  height: 120px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cart__items .item__img {
+  width: 180px;
+}
+.cart__items .item__content {
+  height: 100%;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.cart__items .item__content--title {
+  font-family: "Russo One", sans-serif;
+  font-size: 24px;
+  color: #2a558c;
+  letter-spacing: 2px;
+}
+.cart__items .item__content--description {
+  color: #2a558c;
+  font-weight: 600;
+}
+.cart__items .item__content--price {
+  font-family: "Russo One", sans-serif;
+  font-size: 18px;
+  color: #2a558c;
+}
+.cart__items .item__content--select {
+  width: 50px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  margin-top: 90px;
+}
+.container h1 {
+  margin: 20px;
+  font-size: 24px;
+  font-family: "Russo One", sans-serif;
+  letter-spacing: 5px;
+  font-size: 5em;
+  text-align: center;
+}
+.container .content {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 10px 10px;
+  place-self: center;
+}
+.container .content .card {
+  width: 400px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "img side";
+  cursor: pointer;
+  place-self: center;
+}
+.container .content .card__img {
+  grid-area: img;
+  background-color: #4e94bf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .content .card__img--style {
+  position: relative;
+  width: 200px;
+  top: -50px;
+  object-fit: cover;
+  transition: 1s ease-in-out;
+  transform: rotateZ(-25deg) scale(1.5);
+}
+.container .content .card__img:before {
+  font-family: "Russo One", sans-serif;
+  transform: rotateZ(90deg);
+  position: relative;
+  top: -10px;
+  left: -80px;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #f2f2f2;
+  content: "Adidas";
+  opacity: 0.5;
+  letter-spacing: 3px;
+}
+.container .content .card:hover .card__img--style {
+  top: 0px;
+  transform: scale(1.2);
+  transition: 1s ease-in-out;
+}
+.container .content .card__content {
+  grid-area: side;
+  background-color: #2a558c;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.container .content .card__content--info {
+  width: calc(100% - 20px);
+  color: #f2f2f2;
+  padding: 10px;
+  box-sizing: content-box;
+}
+.container .content .card__content--info h2 {
+  font-size: 22px;
+  font-family: "Russo One", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.container .content .card__content--info p {
+  font-size: 12px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+.container .content .card__content--info h3 {
+  font-size: 16px;
+  font-family: "Russo One", sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+/*# sourceMappingURL=main.css.map */

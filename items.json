@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Tenis 1",
+    "description": "Tenis 1 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 2,
+    "name": "Tenis 2",
+    "description": "Tenis 2 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 3,
+    "name": "Tenis 3",
+    "description": "Tenis 3 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 4,
+    "name": "Tenis 4",
+    "description": "Tenis 4 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 5,
+    "name": "Tenis 5",
+    "description": "Tenis 5 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 6,
+    "name": "Tenis 6",
+    "description": "Tenis 6 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 7,
+    "name": "Tenis 7",
+    "description": "Tenis 7 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 8,
+    "name": "Tenis 8",
+    "description": "Tenis 8 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  },
+  {
+    "id": 9,
+    "name": "Tenis 9",
+    "description": "Tenis 9 description",
+    "img": "./assets/img/1.png",
+    "price": "3000"
+  }
+]

@@ -1,0 +1,79 @@
+@mixin card {
+  width: 400px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "img side";
+  cursor: pointer;
+  place-self: center;
+  &__img {
+    grid-area: img;
+    background-color: #4e94bf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &--style {
+      position: relative;
+      // left: -40px;
+      width: 200px;
+      top: -50px;
+      object-fit: cover;
+      transition: 1s ease-in-out;
+      transform: rotateZ(-25deg) scale(1.5);
+    }
+
+    &:before {
+      font-family: "Russo One", sans-serif;
+      transform: rotateZ(90deg);
+      position: relative;
+      top: -10px;
+      left: -80px;
+      font-size: 1.5em;
+      font-weight: 400;
+      color: #f2f2f2;
+      content: "Adidas";
+      opacity: 0.5;
+      letter-spacing: 3px;
+    }
+  }
+  &:hover .card__img--style {
+    top: 0px;
+    transform: scale(1.2);
+    transition: 1s ease-in-out;
+  }
+  &__content {
+    grid-area: side;
+    background-color: #2a558c;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    &--info {
+      width: calc(100% - 20px);
+      color: #f2f2f2;
+      padding: 10px;
+      box-sizing: content-box;
+      & h2 {
+        font-size: 22px;
+        font-family: "Russo One", sans-serif;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        text-align: right;
+      }
+      & p {
+        font-size: 12px;
+        text-align: right;
+        margin-bottom: 10px;
+      }
+      & h3 {
+        font-size: 16px;
+        font-family: "Russo One", sans-serif;
+        text-transform: uppercase;
+        text-align: right;
+        margin-bottom: 10px;
+        text-align: right;
+      }
+    }
+  }
+}
