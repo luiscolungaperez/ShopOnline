@@ -1,30 +1,32 @@
-const headers = new Headers({ "Content-Type": "application/json" });
+const $overlay = document.getElementById('overlay');
+const $modal = document.getElementById('modal');
+const headers = new Headers({ 'Content-Type': 'application/json' });
 
 const params = {
-  method: "GET",
+  method: 'GET',
   headers: headers,
 };
 
 (async () => {
   try {
-    const response = await fetch("../../items.json");
+    const response = await fetch('../../data.json');
     const infoCard = await response.json();
 
     const cardFill = (data) => {
-      return `<section class="card" key="${data.id}">
-          <div class="card__img">
-            <img src="${data.img}" alt="/" class="card__img--style" />
+      return `<section class='card'  data-id='${data.id}'>
+          <div class='card__img'>
+            <img src='${data.img}' alt='/' class='card__img--style' />
           </div>
-          <div class="card__content">
-            <div class="card__content--info">
-              <h2>${data.name}</h2>
+          <div class='card__content'>
+            <div class='card__content--info'>
+              <h2>${data.product}</h2>
               <p>${data.description}</p>
               <h3>Price: $${data.price}</h3>
             </div>
           </div>
       </section>`;
     };
-    const $content = document.querySelector("#content");
+    const $content = document.querySelector('#content');
 
     const createTemplete = (HtmlString) => {
       const html = document.implementation.createHTMLDocument();
@@ -32,20 +34,36 @@ const params = {
       return html.body.children[0];
     };
 
-    const addEventClick = ($element) => {
-      const $overlay = document.getElementById("overlay");
-      const $modal = document.getElementById("modal");
-      const $closeButton = document.getElementById("closeButton");
-      const $btn = document.querySelector("#cardButton__1");
-      //   console.log($);
+    const showModal = (element) => {
+      const productModal = document.getElementById('productModal');
+      const descriptionModal = document.getElementById('descriptionModal');
+      const imgModal = document.getElementById('imgModal');
+      const priceModal = document.getElementById('priceModal');
 
-      $element.addEventListener("click", () => {
-        $overlay.classList.add("active");
-        $modal.classList.add("active");
+      $overlay.classList.add('active');
+      $modal.classList.add('active');
+      const id = element.dataset.id;
+      const data = infoCard.find(item => item.id === parseInt(id, 10));
+      productModal.textContent = data.product;
+      descriptionModal.textContent = data.description;
+      priceModal.textContent = `$ ${data.price}`;
+      imgModal.setAttribute('src', data.img);
+    }
+
+    const hideModal = () => {
+      $overlay.classList.remove('active');
+      $modal.classList.remove('active');
+    }
+
+    const addEventClick = ($element) => {
+      const $closeButton = document.getElementById('closeButton');
+      
+      $element.addEventListener('click', () => {
+        showModal($element);
       });
-      $closeButton.addEventListener("click", () => {
-        $overlay.classList.remove("active");
-        $modal.classList.remove("active");
+
+      $closeButton.addEventListener('click', () => {
+        hideModal();
       });
     };
     infoCard.forEach((card) => {

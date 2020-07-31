@@ -8,7 +8,7 @@
   },
   {
     "id": 2,
-    "name": "Tenis 2",
+    "product": "Tenis 2",
     "description": "Tenis 2 description",
     "img": "./assets/img/1.png",
     "price": "3000"
