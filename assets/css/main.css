@@ -215,16 +215,16 @@
   color: #2a558c;
 }
 .cart__pay--subtotal {
-  font-size: 22px;
+  font-size: 20px;
   padding-left: 20px;
 }
 .cart__pay--iva {
-  font-size: 22px;
+  font-size: 20px;
   padding-left: 20px;
   font-family: "Russo One", sans-serif;
 }
 .cart__pay--total {
-  font-size: 30px;
+  font-size: 24px;
   padding-left: 20px;
   padding-bottom: 10px;
   font-family: "Russo One", sans-serif;

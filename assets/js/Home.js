@@ -11,6 +11,8 @@ const params = {
   try {
     const response = await fetch('../../data.json');
     const infoCard = await response.json();
+    let allData = [];
+
 
     const cardFill = (data) => {
       return `<section class='card'  data-id='${data.id}'>
@@ -39,6 +41,7 @@ const params = {
       const descriptionModal = document.getElementById('descriptionModal');
       const imgModal = document.getElementById('imgModal');
       const priceModal = document.getElementById('priceModal');
+      const btnModal = document.getElementById('btn-item');
 
       $overlay.classList.add('active');
       $modal.classList.add('active');
@@ -48,6 +51,14 @@ const params = {
       descriptionModal.textContent = data.description;
       priceModal.textContent = `$ ${data.price}`;
       imgModal.setAttribute('src', data.img);
+      allData = [
+        ...allData,
+        data
+      ];
+      btnModal.addEventListener('click', (event) => {
+        localStorage.setItem('data', JSON.stringify(allData));
+        hideModal();
+      })
     }
 
     const hideModal = () => {
@@ -66,6 +77,7 @@ const params = {
         hideModal();
       });
     };
+    
     infoCard.forEach((card) => {
       const HtmlString = cardFill(card);
       const cardElement = createTemplete(HtmlString);
