@@ -14,6 +14,12 @@
     </section>`
   }
 
+  const withOutItems = () => {
+    return `<section class='item'>
+      <h4>No hay producto seleccionados</h4>
+    </section>`
+  }
+
   const createItem = (HtmlString) => {
     const html = document.implementation.createHTMLDocument();
     html.body.innerHTML = HtmlString;
@@ -30,12 +36,25 @@
     $total.textContent = `Total: $ ${(subtotal + (subtotal * 0.16)).toFixed(2)}`;
   }
 
-  allData.forEach(element => {
+
+  if(localStorage.length === 0){
+    subtotal = 0;
+    const HtmlString = withOutItems();
+    const itemElement = createItem(HtmlString);
+    $content__card.append(itemElement);
+    infoPay();
+  }else{
+    allData.forEach(element => {
     subtotal += element.price;
     const HtmlString = itemFill(element);
     const itemElement = createItem(HtmlString);
     $content__card.append(itemElement);
     infoPay();
-  });
-  
+    });
+  }
 })();
+
+const clearShop = () => {
+  localStorage.clear();
+  location.reload();
+}

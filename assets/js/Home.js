@@ -1,6 +1,7 @@
 const $overlay = document.getElementById('overlay');
 const $modal = document.getElementById('modal');
 const headers = new Headers({ 'Content-Type': 'application/json' });
+const notification = document.getElementById('snack');
 
 const params = {
   method: 'GET',
@@ -36,6 +37,13 @@ const params = {
       return html.body.children[0];
     };
 
+    const showSnack  = () => {
+      notification.classList.add('active');
+      setTimeout( () => {
+        notification.classList.remove('active');
+      }, 2000)
+    }
+
     const showModal = (element) => {
       const productModal = document.getElementById('productModal');
       const descriptionModal = document.getElementById('descriptionModal');
@@ -57,6 +65,7 @@ const params = {
       ];
       btnModal.addEventListener('click', (event) => {
         localStorage.setItem('data', JSON.stringify(allData));
+        showSnack();
         hideModal();
       })
     }
