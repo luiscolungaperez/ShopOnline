@@ -10,7 +10,7 @@ const params = {
 
 (async () => {
   try {
-    const response = await fetch('../../data.json');
+    const response = await fetch('http://luiscolungaperez.github.io/ShopOnline/assets/data/');
     const infoCard = await response.json();
     let allData = [];
 
@@ -94,6 +94,9 @@ const params = {
       addEventClick(cardElement);
     });
   } catch (e) {
-    console.log(e);
+    const text = document.querySelector('strong');
+    text.textContent = `${e}`;
+    notification.classList.add('active');
+    
   }
 })();
