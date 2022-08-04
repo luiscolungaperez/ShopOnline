@@ -10,7 +10,7 @@ const params = {
 
 (async () => {
   try {
-    const response = await fetch('https://luiscolungaperez.github.io/ShopOnline/assets/data/');
+    const response = await fetch('https://luiscolungaperez.com/ShopOnline/assets/data/');
     const infoCard = await response.json();
     let allData = [];
 
